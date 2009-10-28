@@ -172,6 +172,7 @@ class EstimateTimelogController < ApplicationController
       end
      
       @total_hours = @hours.inject(0) {|s,k| s = s + k['hours'].to_f}
+      @total_hours_est = @hours.inject(0) {|s,k| s = s + k['hours_est'].to_f}
       
       @periods = []
       # Date#at_beginning_of_ not supported in Rails 1.2.x

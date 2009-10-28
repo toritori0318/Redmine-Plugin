@@ -31,7 +31,8 @@
 
 <% unless @criterias.empty? %>
 <div class="total-hours">
-<p><%= l(:label_total) %>: <%= html_hours(lwr(:label_f_hour, @total_hours)) %></p>
+<p><%= l(:et_label_estimated_total) %>: <%= html_hours(lwr(:label_f_hour, @total_hours_est)) %></p>
+<p><%= l(:et_label_hours_total) %>: <%= html_hours(lwr(:label_f_hour, @total_hours)) %></p>
 </div>
 
 <% unless @hours.empty? %>
@@ -41,7 +42,7 @@
 <% @criterias.each do |criteria| %>
   <th><%= l(@available_criterias[criteria][:label]) %></th>
 <% end %>
-<% columns_width = (40 / (@periods.length+1)).to_i %>
+<% columns_width = (30 / (@periods.length+1)).to_i %>
 <% @periods.each do |period| %>
   <th class="period" width="<%= columns_width %>%"><%= period %>:<%= l(:et_label_estimated_hours) %></th>
   <th class="period" width="<%= columns_width %>%"><%= period %>:<%= l(:et_label_hours) %></th>
