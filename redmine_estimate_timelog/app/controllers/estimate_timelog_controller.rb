@@ -31,25 +31,25 @@ class EstimateTimelogController < ApplicationController
   include EstimateTimelogHelper
   
   def report
-    @available_criterias = { 'project' => {:sql => "jisseki.project",
+      @available_criterias = { 'project' => {:sql => "case when jisseki.project != '' then jisseki.project else yotei.project end",
                                           :klass => Project,
                                           :label => :label_project},
-                             'version' => {:sql => "jisseki.version",
+                             'version' => {:sql => "case when jisseki.version != '' then jisseki.version else yotei.version end",
                                           :klass => Version,
                                           :label => :label_version},
-                             'category' => {:sql => "jisseki.category",
+                             'category' => {:sql => "case when jisseki.category != '' then jisseki.category else yotei.category end",
                                             :klass => IssueCategory,
                                             :label => :field_category},
-                             'member' => {:sql => "jisseki.member",
+                             'member' => {:sql => "case when jisseki.member != '' then jisseki.member else yotei.member end",
                                          :klass => User,
                                          :label => :label_member},
-                             'tracker' => {:sql => "jisseki.tracker",
+                             'tracker' => {:sql => "case when jisseki.tracker != '' then jisseki.tracker else yotei.tracker end",
                                           :klass => Tracker,
                                           :label => :label_tracker},
-                             'activity' => {:sql => "jisseki.activity",
+                             'activity' => {:sql => "case when jisseki.activity != '' then jisseki.activity else yotei.activity end",
                                            :klass => Enumeration,
                                            :label => :label_activity},
-                             'issue' => {:sql => "jisseki.issue",
+                             'issue' => {:sql => "case when jisseki.issue != '' then jisseki.issue else yotei.issue end",
                                          :klass => Issue,
                                          :label => :label_issue}
                            }
